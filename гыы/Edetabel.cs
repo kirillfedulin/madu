@@ -19,7 +19,7 @@ namespace Ussimang
             if (!File.Exists(failiTee) || File.ReadAllLines(failiTee).Length == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine("Tulemusi pole veel. Ole esimene!");
+                Console.WriteLine("  Tulemusi pole veel. Ole esimene!");
                 Console.WriteLine();
                 return;
             }

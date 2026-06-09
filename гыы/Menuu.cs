@@ -12,19 +12,19 @@ namespace Ussimang
                 Console.WriteLine("USSIMÄNG");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("Juhtimine: nooleklahvid");
-                Console.WriteLine("Eesmärk: söö nii palju toitu (@) kui võimalik");
+                Console.WriteLine("  Juhtimine: nooleklahvid");
+                Console.WriteLine("  Eesmärk: söö nii palju toitu (@) kui võimalik");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("  Vali raskusaste:");
-                Console.WriteLine("1 — Lihtne   (aeglane)");
-                Console.WriteLine("2 — Keskmine (normaalne)");
-                Console.WriteLine("3 — Raske    (kiire)");
+                Console.WriteLine("    1 — Lihtne   (aeglane)");
+                Console.WriteLine("    2 — Keskmine (normaalne)");
+                Console.WriteLine("    3 — Raske    (kiire)");
                 Console.WriteLine();
-                Console.WriteLine("5 — Vaata edetabelit");
-                Console.WriteLine("0 — Välju");
+                Console.WriteLine("  5 — Vaata edetabelit");
+                Console.WriteLine("  0 — Välju");
                 Console.WriteLine();
-                Console.Write("Sinu valik:");
+                Console.Write("  Sinu valik: ");
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 string? sisend = Console.ReadLine();
@@ -35,7 +35,7 @@ namespace Ussimang
                 {
                     Edetabel.Kuva();
                     Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.WriteLine("Vajuta suvalist klahvi");
+                    Console.WriteLine("  Vajuta suvalist klahvi...");
                     Console.ReadKey(true);
                     continue;
                 }
@@ -49,7 +49,7 @@ namespace Ussimang
 
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("\nHead aega!\n");
+            Console.WriteLine("\n  Head aega! 🐍\n");
             Console.ResetColor();
         }
     }

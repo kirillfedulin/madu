@@ -6,6 +6,7 @@ namespace Ussimang
         private Kaart kaart;
         private Uss uss;
         private Toit toit;
+        private Vaenlane vaenlane;
         private int skoor;
         private int soodudToit;
         private int praeguneKiirus;
@@ -27,12 +28,13 @@ namespace Ussimang
             Console.Clear();
             Console.CursorVisible = false;
 
-            kaart = new Kaart(seaded.Laius, seaded.Korgus);
-            uss   = new Uss(seaded.Laius / 2, seaded.Korgus / 2, 4);
-            toit  = new Toit(seaded.Laius, seaded.Korgus);
+            kaart    = new Kaart(seaded.Laius, seaded.Korgus);
+            uss      = new Uss(seaded.Laius / 2, seaded.Korgus / 2, 4);
+            toit     = new Toit(seaded.Laius, seaded.Korgus);
+            vaenlane = new Vaenlane(seaded.Laius, seaded.Korgus, seaded.Tase);
 
-            skoor         = 0;
-            soodudToit    = 0;
+            skoor          = 0;
+            soodudToit     = 0;
             praeguneKiirus = seaded.KiirusMS;
 
             kaart.Joonista();
@@ -105,6 +107,14 @@ namespace Ussimang
                     JoonistaNaitaja();
                 }
 
+                vaenlane.Liigu(pea, kaart);
+
+                if (vaenlane.PuutubKokku(pea) || vaenlane.PuutubKokkuUssiga(uss.HangiKeha()))
+                {
+                    mangLabi = true;
+                    break;
+                }
+
                 Thread.Sleep(praeguneKiirus);
             }
 
@@ -120,7 +130,7 @@ namespace Ussimang
             int cx = seaded.Laius / 2 - 6;
             int cy = seaded.Korgus / 2;
             Console.SetCursorPosition(cx, cy);
-            Console.WriteLine("MÄNG ON LÄBI");
+            Console.WriteLine("  *** MÄNG ON LÄBI ***  ");
             Console.SetCursorPosition(cx, cy + 1);
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"     Skoor: {skoor} punkti     ");
@@ -129,7 +139,7 @@ namespace Ussimang
             Console.SetCursorPosition(0, seaded.Korgus + 1);
             Console.ForegroundColor = ConsoleColor.White;
             Console.CursorVisible = true;
-            Console.Write("Sisesta oma nimi: ");
+            Console.Write("  Sisesta oma nimi: ");
             string nimi = Console.ReadLine() ?? "Anonüüm";
             if (string.IsNullOrWhiteSpace(nimi)) nimi = "Anonüüm";
 
